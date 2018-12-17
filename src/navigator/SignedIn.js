@@ -4,10 +4,11 @@ import HomeScreen from '../screens/HomeScreen';
 
 const SignedInNavigator = createDrawerNavigator({
   Home: {
-    screen: HomeScreen
+    screen: HomeScreen,
+    navigationOptions: {
+      header: 'Home'
+    }
   }
 });
-
-console.log('hi');
 
 export default SignedInNavigator;

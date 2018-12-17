@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Alert } from 'react-native';
+import {Platform, StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import SignInForm from '../components/SignInForm';
 import userSignIn from '../actions/AuthActions';
 import { connect } from 'react-redux';
@@ -9,24 +9,20 @@ const mapStateToProps = state => {
   return state;
 }
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    signIn: (values) => {
-      dispatch(userSignIn(values));
-      console.log('button pressed')
-    }
+    signIn: (values) => dispatch(userSignIn(values))
   }
 }
-
-// const onSubmit = (values, dispatch) => {
-//   dispatch(userSignIn(values.username, values.password));
-// };
 
 const SignInScreen = (props) => {
   const selector = formValueSelector('SignInForm');
   const values = selector(props, 'username', 'password');
+  console.log(props);
   return (
-    <SignInForm onSubmit={values => props.signIn(values)}/>
+    <SafeAreaView style={{ flex: 1 }}>
+      <SignInForm onSubmit={values => props.signIn(values)}/>
+    </SafeAreaView>
   );
 }
 

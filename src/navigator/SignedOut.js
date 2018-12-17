@@ -4,7 +4,10 @@ import SignInScreen from '../screens/SignInScreen';
 
 const SignedOutNavigator = createStackNavigator({
   SignIn: {
-    screen: SignInScreen
+    screen: SignInScreen,
+    navigationOptions: {
+      header: null
+    }
   }
 });
 

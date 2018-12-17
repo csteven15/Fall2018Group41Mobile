@@ -21,7 +21,7 @@ const SignInForm = (props) => {
   const { handleSubmit, reset } = props;
 
   return (
-    <Container style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.subContainer1}>
         
         <Field name='username' placeholder='Username' component={this.renderInput} />
@@ -33,7 +33,7 @@ const SignInForm = (props) => {
           <Text>Sign In</Text>
         </Button>
       </View>
-    </Container>
+    </View>
   );
 }
 

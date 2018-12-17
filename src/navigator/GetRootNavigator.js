@@ -3,17 +3,17 @@ import { createSwitchNavigator } from 'react-navigation';
 import SignedInNavigator from './SignedIn';
 import SignedOutNavigator from './SignedOut';
 
-
-
-export const GetRootNavigator = (loggedIn) => {
-  console.log(loggedIn)
-  createSwitchNavigator(
+const GetRootNavigator = (loggedIn) => {
+  console.log('logging loggedIn variable')
+  console.log(loggedIn);
+  return createSwitchNavigator(
     {
       LoggedOut: {
-        screen: SignedOutNavigator
+        screen: SignedOutNavigator,
+
       },
       LoggedIn: {
-        screen: SignedInNavigator
+        screen: SignedInNavigator,
       }
     },
     {
@@ -21,3 +21,5 @@ export const GetRootNavigator = (loggedIn) => {
     }
   );
 };
+
+export default GetRootNavigator;

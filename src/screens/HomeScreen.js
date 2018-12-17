@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Alert } from 'react-native';
+import {Platform, StyleSheet, View, SafeAreaView } from 'react-native';
+import { Container, Header, Content, Form, Item, Input, Button, Text} from 'native-base';
 
 const HomeScreen = (props) => {
   return (
-    <View>
+    <SafeAreaView style={{ flex: 1 }}>
       <Text>Home Screen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  subContainer1: {
+    width: '60%',
+    height: '20%',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputs: {
+    margin: 5
+  }
+})
 
 export default HomeScreen;
