@@ -2,6 +2,7 @@ import {
   USER_SIGNIN, USER_SIGNIN_ERROR, USER_SIGNIN_SUCCESS,
   USER_SIGNIN_STARTED
 } from './../constant-types/AuthActionTypes';
+import { Actions } from 'react-native-router-flux';
 import { Auth } from 'aws-amplify';
 
 const userSignIn = (values) => {
@@ -14,11 +15,12 @@ const userSignIn = (values) => {
     try {
       console.log('trying login');
       console.log(values);
-      let data = await Auth.signIn(values.username, values.password);
+      let user = await Auth.signIn(values.username, values.password);
       console.log('successfully connected with amplify');
-      dispatch(userSignInSuccess(data));
+      dispatch(userSignInSuccess(user));
       console.log('successfully logged in with data:');
-      console.log(data);
+      console.log(user);
+      Actions.home();
     } catch (error) {
       dispatch(userSignInError(error));
       console.log('failed to log in with error:');
@@ -60,12 +62,13 @@ const userSignIn = (values) => {
 
 };
 
-const userSignInSuccess = data => ({
+const userSignInSuccess = user => ({
   type: USER_SIGNIN_SUCCESS,
   payload: {
-    username: data.signInUserSession.accessToken.payload.username,
-    jwtToken: data.signInUserSession.accessToken.jwToken,
-    authData: data
+    username: user.signInUserSession.accessToken.payload.username,
+    jwtToken: user.signInUserSession.accessToken.jwToken,
+    email: user.signInUserSession.idToken.payload.email,
+    authData: user
   }
 });
 

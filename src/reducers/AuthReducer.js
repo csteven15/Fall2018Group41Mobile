@@ -32,7 +32,8 @@ const AuthReducer = (state = initialState, action) => {
         authState: action.payload.username,
         authData: action.payload.authData,
         username: action.payload.username,
-        jwtToken: action.payload.jwtToken
+        jwtToken: action.payload.jwtToken,
+        email: action.payload.email
       }
     case USER_SIGNIN_ERROR:
       console.log('failure from reducer');

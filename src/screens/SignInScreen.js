@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch) => {
 const SignInScreen = (props) => {
   const selector = formValueSelector('SignInForm');
   const values = selector(props, 'username', 'password');
-  console.log(props);
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <SignInForm onSubmit={values => props.signIn(values)}/>

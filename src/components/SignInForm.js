@@ -16,6 +16,7 @@ renderInput = ({ input, label, type, placeholder, meta: { touched, error, warnin
     </Item>
   )
 }
+const lower = value => value && value.toLowerCase()
 
 const SignInForm = (props) => {
   const { handleSubmit, reset } = props;
@@ -24,8 +25,8 @@ const SignInForm = (props) => {
     <View style={styles.container}>
       <View style={styles.subContainer1}>
         
-        <Field name='username' placeholder='Username' component={this.renderInput} />
-        <Field name='password' placeholder='Password' component={this.renderInput} />
+        <Field name='username' placeholder='Username' normalize={lower} component={this.renderInput} />
+        <Field name='password' placeholder='Password' normalize={lower} component={this.renderInput} />
         <Button style={styles.inputs} full rounded>
           <Text>Continue as Guest</Text>
         </Button>
