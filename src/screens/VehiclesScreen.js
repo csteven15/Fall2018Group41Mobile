@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Platform, StyleSheet, View, SafeAreaView } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, SafeAreaView } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Button, Text} from 'native-base';
 
 const VehiclesScreen = (props) => {

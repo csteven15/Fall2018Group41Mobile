@@ -12,13 +12,14 @@ import HomeScreen from './src/screens/HomeScreen';
 import SignInScreen from './src/screens/SignInScreen';
 import OtherScreen from './src/screens/OtherScreen';
 import DrawerContent from './src/components/DrawerContent';
+import { Icon } from 'native-base';
 import { Scene, Router, Actions, Reducer, ActionConst, Overlay, Tabs, Modal, Drawer, Stack, Lightbox } from 'react-native-router-flux';
-import { Menu as MenuIcon } from 'react-native-vector-icons/FontAwesome5';
 import PermitsScreen from './src/screens/PermitsScreen';
 import VehiclesScreen from './src/screens/VehiclesScreen';
 import ScannerScreen from './src/screens/ScannerScreen';
 import MapsScreen from './src/screens/MapsScreen';
 import ContactScreen from './src/screens/ContactScreen';
+import GuestScreen from './src/screens/GuestScreen';
 
 
 Amplify.configure({
@@ -33,6 +34,7 @@ Amplify.configure({
 const AppNavigator = Actions.create(
   <Scene key="root" hideNavBar>
     <Scene key="signin" component={SignInScreen} hideNavBar />
+    <Scene key="guest" component={GuestScreen} hideNavBar />
     <Drawer
       hideNavBar
       key="drawer"
@@ -43,15 +45,15 @@ const AppNavigator = Actions.create(
         console.log('Drawer opened');
       }}
       contentComponent={DrawerContent}
-      drawerIcon={MenuIcon}
+      drawerIcon={<Icon name='menu' />}
       drawerWidth={300}
     >
-      <Scene key="home" component={HomeScreen} />
-      <Scene key="permits" component={PermitsScreen} />
-      <Scene key="vehicles" component={VehiclesScreen} />
-      <Scene key="scanner" component={ScannerScreen} />
-      <Scene key="maps" component={MapsScreen} />
-      <Scene key="contact" component={ContactScreen} />
+      <Scene key="home" component={HomeScreen} title='Home'/>
+      <Scene key="permits" component={PermitsScreen} title='Permits'/>
+      <Scene key="vehicles" component={VehiclesScreen} title='Vehicles'/>
+      <Scene key="scanner" component={ScannerScreen} title='Scanner'/>
+      <Scene key="maps" component={MapsScreen} title='Maps'/>
+      <Scene key="contact" component={ContactScreen} title='Contact'/>
     </Drawer>
   </Scene>,
 );

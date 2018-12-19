@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Button, Text} from 'native-base';
 import { Field, reduxForm } from 'redux-form';
+import { Actions } from 'react-native-router-flux';
 
 
 renderInput = ({ input, label, type, placeholder, meta: { touched, error, warning } }) => {
@@ -27,7 +28,7 @@ const SignInForm = (props) => {
         
         <Field name='username' placeholder='Username' normalize={lower} component={this.renderInput} />
         <Field name='password' placeholder='Password' normalize={lower} component={this.renderInput} />
-        <Button style={styles.inputs} full rounded>
+        <Button style={styles.inputs} full rounded onPress={Actions.guest}>
           <Text>Continue as Guest</Text>
         </Button>
         <Button style={styles.inputs} full rounded onPress={handleSubmit}>
