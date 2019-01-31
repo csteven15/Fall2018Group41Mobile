@@ -36,4 +36,9 @@
   return YES;
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+  return NO;
+}
+
 @end
